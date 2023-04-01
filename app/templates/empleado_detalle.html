@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main class="container">
+  <div class="row">
+    <div class="col-md-4 offset-md-4 py-5">
+      <h1 class="text-secondary">Actualizar empleado</h1>
+      <br>
+      {{error}}
+
+      <div>
+        <form method="POST">
+          {% csrf_token %}
+          {{form.as_p}}
+  
+          <button class="btn btn-primary">
+            Actualizar
+          </button>
+        </form><br>
+  
+        <form action="{% url 'eliminar_empleado' empleado.id %}" method="POST">
+          {% csrf_token %}
+          <button class="btn btn-danger">
+            Eliminar
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+
+{% endblock %}

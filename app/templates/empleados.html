@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1 class="text-center display-3 py-5">Empleados</h1>
+            <ul class="list-group">
+                {% for empleado in empleados %}
+                <a class="list-group-item" href="{% url 'empleado_detalle' empleado.id %}">
+                    <h2 class="fw-bold text-primary">{{empleado.nombre}} {{empleado.apellido}}</h2>
+                    <p>Edad: {{empleado.edad}}</p>
+                    <p>Correo: {{empleado.correo}}</p>
+                    <p>Fecha de ingreso: {{empleado.fecha_ingreso}}</p>
+                </a>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</main>
+
+{% endblock %}
